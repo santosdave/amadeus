@@ -1,0 +1,37 @@
+{
+    "name": "santosdave/amadeus",
+    "description": "Laravel Library for Amadeus Self-Service Atravel APIs",
+    "license": "MIT",
+    "keywords": ["amadeus","flights","travel","laravel"],
+    "authors": [
+        {
+            "name": "Wycliffe Dev",
+            "email": "santosdave86@gmail.com",
+            "role":"Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/santosdave/amadeus"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^7.2",
+        "laravel/framework": "^10.10"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Santosdave\\Amadeus\\AmadeusProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Santosdave\\Amadeus\\": "src/"
+        }
+    }
+    
+}
