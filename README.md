@@ -1,4 +1,4 @@
-# Amadeus package for Laravel
+# Amadeus Self-Service package for Laravel
 
 Laravel package for Amadeus Self-Service Travel APIs
 
