@@ -4,7 +4,6 @@ namespace Santosdave\Amadeus;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\ServiceProvider;
 use Santosdave\Amadeus\Auth; //
 use Santosdave\Amadeus\Flight;
 

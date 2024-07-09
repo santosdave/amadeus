@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 namespace Santosdave\Amadeus;
@@ -9,28 +9,26 @@ use GuzzleHttp\Client;
 
 class MyClient extends Model
 {
-    public static function get($endpoint,$params=[]){
-        $url=Amadeus::$base_url.$endpoint."?".http_build_query($params);
-        $Authorization="Bearer ".Amadeus::$access_token;
-        $requestParams=[
-            'headers' => ['Content-Type' => 'application/vnd.amadeus+json','Authorization' => $Authorization],
+    protected $logger = null;
+    public static function get($endpoint, $params = [], AmadeusLogger $logger = null)
+    {
+        $url = Amadeus::$base_url . $endpoint . "?" . http_build_query($params);
+        $Authorization = "Bearer " . Amadeus::$access_token;
+        $requestParams = [
+            'headers' => ['Content-Type' => 'application/vnd.amadeus+json', 'Authorization' => $Authorization],
             'verify' => false,
         ];
-        try{
+        try {
             $client = new Client(); //GuzzleHttp\Client
-            $result = $client->get($url,$requestParams);  
-            if($result->getStatusCode()){
-                $result = json_decode($result->getBody());
+            $result = $client->get($url, $requestParams);
+            if ($result->getStatusCode()) {
+                $result = json_decode($result->getBody()->getContents());
                 return $result;
-
-            }
-            else{
+            } else {
                 $result = json_decode($result->getBody());
                 return $result;
             }
-
-        }
-        catch(GuzzleException $exception){
+        } catch (GuzzleException $exception) {
             $response = $exception->getResponse();
             return json_decode($response->getBody()->getContents());
         }

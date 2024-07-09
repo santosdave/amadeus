@@ -31,12 +31,18 @@ Add Amadeus in aliases under `config/app.php` file.
 #### Now its Ready to use
 
 ```php
-    $params=new stdClass();
-    $params->origin='MAD';
-    $params->destination='PAR';
-    $params->departureDate='2020-04-01';
-    $params->returnDate='2020-04-15';
-    $result = Amadeus::flightLowFareSearch($params);
+  $params = new stdClass();
+  $params->originLocationCode = $request['originLocationCode'];
+  $params->destinationLocationCode = $request['destinationLocationCode'];
+  $params->departureDate = $request['departureDate'];
+  $params->returnDate = $request['returnDate'];
+  $params->adults = $request['adults'];
+  $params->children = $request['children'];
+  $params->infants = $request['infants'];
+  $params->max = $request['max'];
+  $params->currencyCode = $request['currencyCode'];
+  $params->travelClass = $request['travelClass'];
+  $result = Amadeus::flightOffersSearch($params);
 ```
 
 you can use The Amadeus Class anywhere you want it , in Controller or Blade File
