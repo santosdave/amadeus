@@ -51,7 +51,7 @@ class FlightOfferParser
         return $flightOffer;
     }
 
-    private static function parseDictionaries($dictionaries)
+    public static function parseDictionaries($dictionaries)
     {
         $locations = self::parseLocations($dictionaries->locations ?? null);
         $aircraft = self::parseAircraft($dictionaries->aircraft ?? null);
@@ -65,7 +65,7 @@ class FlightOfferParser
         ];
     }
 
-    private static function parseLocations($locations)
+    public static function parseLocations($locations)
     {
         $parsedLocations = [];
         foreach ($locations as $code => $location) {
@@ -78,7 +78,7 @@ class FlightOfferParser
         return $parsedLocations;
     }
 
-    private static function parseAircraft($aircraft)
+    public static function parseAircraft($aircraft)
     {
         $parsedAircraft = [];
         foreach ($aircraft as $code => $name) {
@@ -87,7 +87,7 @@ class FlightOfferParser
         return $parsedAircraft;
     }
 
-    private static function parseCurrencies($currencies)
+    public static function parseCurrencies($currencies)
     {
         $parsedCurrencies = [];
         foreach ($currencies as $code => $name) {
@@ -96,7 +96,7 @@ class FlightOfferParser
         return $parsedCurrencies;
     }
 
-    private static function parseCarriers($carriers)
+    public static function parseCarriers($carriers)
     {
         $parsedCarriers = [];
         foreach ($carriers as $code => $name) {
@@ -105,7 +105,7 @@ class FlightOfferParser
         return $parsedCarriers;
     }
 
-    private static function parseOffers($offers)
+    public static function parseOffers($offers)
     {
         $parsedOffers = [];
         foreach ($offers as $trip) {
@@ -135,7 +135,7 @@ class FlightOfferParser
     }
 
 
-    private static function parseItineraries($itineraries)
+    public static function parseItineraries($itineraries)
     {
         $parsedItineraries = [];
         foreach ($itineraries as $itinerary) {
@@ -146,7 +146,7 @@ class FlightOfferParser
         return $parsedItineraries;
     }
 
-    private static function parseSegments($segments)
+    public static function parseSegments($segments)
     {
         $parsedSegments = [];
         foreach ($segments as $segment) {
@@ -183,7 +183,7 @@ class FlightOfferParser
     }
 
 
-    private static function parsePrice($price)
+    public static function parsePrice($price)
     {
         $fees = [];
         if (isset($price->fees)) {
@@ -211,7 +211,7 @@ class FlightOfferParser
         );
     }
 
-    private static function parsePricingOptions($pricingOptions)
+    public static function parsePricingOptions($pricingOptions)
     {
         return new PricingOptions(
             $pricingOptions->fareType ?? null,
@@ -219,7 +219,7 @@ class FlightOfferParser
         );
     }
 
-    private static function parseTravelerPricings($travelerPricings)
+    public static function parseTravelerPricings($travelerPricings)
     {
         $parsedTravelerPricings = [];
         foreach ($travelerPricings as $travelerPricing) {
